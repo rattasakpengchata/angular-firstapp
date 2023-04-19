@@ -1,0 +1,29 @@
+<h2>Products</h2>
+<div *ngFor="let x of productss">
+  <h3>{{ x.name }}</h3>
+  <p>{{x.description}}</p>
+  <a class="button" 
+    *ngIf="x.description" 
+    [title]="x.name + ' details'" 
+    [routerLink]="['/products', x.id]"
+  >detail</a>
+  <button type="button" 
+      [title]=" 'share to social' "
+      (click)="share()">
+  Share
+</button>
+<a class="button fancy-button"
+   (click)="addToCart(x)">
+  <i class="material-icons">shopping_cart</i>Checkout
+</a>
+<app-product-alerts
+  [pd]="x"
+  (notify)="onNotify()"></app-product-alerts>
+</div>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
